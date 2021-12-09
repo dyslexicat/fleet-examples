@@ -1,4 +1,4 @@
-namespace: fleet-mc-manifest-example
+namespace: guestbook-app
 targetCustomizations:
 - name: dev
   clusterSelector:
@@ -18,12 +18,12 @@ targetCustomizations:
     # Refers to overlays/scale3 folder
     - scale3
 
-- name: prod
-  clusterSelector:
-    matchLabels:
-      env: prod
-  yaml:
-    # Refers to overlays/servicelb, scale3 folders
-    overlays:
-    - servicelb
-    - scale3
+# - name: prod
+#   clusterSelector:
+#     matchLabels:
+#       env: prod
+#   yaml:
+#     # Refers to overlays/servicelb, scale3 folders
+#     overlays:
+#     - servicelb
+#     - scale3
