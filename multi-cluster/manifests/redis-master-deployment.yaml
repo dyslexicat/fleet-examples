@@ -16,6 +16,7 @@ spec:
         role: master
         tier: backend
     spec:
+      subdomain: primary
       containers:
       - name: master
         image: redis
@@ -23,5 +24,8 @@ spec:
           requests:
             cpu: 100m
             memory: 100Mi
+        args:
+          - "--protected-mode"
+          - "no"
         ports:
         - containerPort: 6379

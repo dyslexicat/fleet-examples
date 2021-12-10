@@ -16,12 +16,19 @@ spec:
         role: slave
         tier: backend
     spec:
+      subdomain: replica
       containers:
       - name: slave
-        image: gcr.io/google_samples/gb-redisslave:v1
+        image: redis
         resources:
           requests:
             cpu: 100m
             memory: 100Mi
+        args:
+          - "--slaveof"
+          - "redis-master.guestbook-app.svc.cluster.local"
+          - "6379"
+          - "--protected-mode"
+          - "no"
         ports:
         - containerPort: 6379
